@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+
+    <style>
+        table {
+            margin: 10px auto;
+        }
+        table,
+        th,
+        td {
+            border: 4px solid red;
+            border-collapse: separate;
+        }
+        th,
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+	<div style="text-align: center" >
+	  <h3>Öğrenciye tıklandığında bilgilerin ekrana getirilmesi</h3>
+    </div>
+    <hr>
+
+    <div style="text-align: center">
+    <div id="kisiBilgileri"></div>
+        <table id="table"></table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            loadTable()
+        });
+        function loadTable() {
+            connectXmlFile(createTable, "kisiler.xml")
+        }
+        function getPerson(id) {
+            connectXmlFile(createPerson, "kisiler.xml", { id: id })
+        }
+        function connectXmlFile(callback, file, params) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    callback(this, params);
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+        }
+        function createTable(xml)
+         {
+            var i, xmlDoc = xml.responseXML;
+            var table = "<tr><th>Numara</th><th>Ad Soyad</th></tr>";
+            var x = xmlDoc.getElementsByTagName("kisi");
+            for (i = 0; i < x.length; i++)
+            {
+               table += "<tr onClick=getPerson(" + x[i].getAttribute('id') + ")><td>" + 
+                         x[i].getElementsByTagName("ogrNo")[0].childNodes[0].nodeValue + 
+                        "</td><td>" + x[i].getElementsByTagName("adiSoyadi")[0].childNodes[0].nodeValue + "</td></tr>";
+            }
+            document.getElementById("table").innerHTML = table;
+        }
+        function createPerson(xml, params)
+         {
+            var xmlDoc = xml.responseXML;
+            var x = xmlDoc.getElementById(params.id)
+            var div =
+                "Numara : " +   x.getElementsByTagName("ogrNo")[0].childNodes[0].nodeValue + "<br>" +
+                "Ad Soyad : " + x.getElementsByTagName("adiSoyadi")[0].childNodes[0].nodeValue + "<br>" +
+                "Sınıf : " +    x.getElementsByTagName("sinif")[0].childNodes[0].nodeValue + "<br>" +
+                "Bölüm : " +    x.getElementsByTagName("bolum")[0].childNodes[0].nodeValue;
+            document.getElementById("kisiBilgileri").innerHTML = div;
+        }
+    </script>
+</body>
+</html>

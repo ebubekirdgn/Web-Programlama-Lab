@@ -1,0 +1,61 @@
+<html>
+    <head>
+    <title>sayı tahmin oyunu</title>
+    <script type="text/javascript">
+    var rastgelesayi = Math.round(Math.random() * 10)
+    var tahminsayisi = 1
+    function Bul(tahmin)
+    {
+        do
+        { 
+            if (tahmin == "")
+            {
+            alert("Lüften Bir sayı Girin")
+            document.sayitahmin.tahminim.focus()
+            return
+            }
+            if (isNaN(tahmin))
+            {
+            alert("Geçersiz Bir değer girdiniz")
+            document.sayitahmin.tahminim.value=""
+            document.sayitahmin.tahminim.focus()
+            return
+            }
+            if (tahmin == rastgelesayi)
+            {
+            alert("Tebrikler " + tahminsayisi + " tahminde buldunuz")
+            return
+            }
+            if (tahmin > rastgelesayi)
+            {
+            alert("Sayıyı Küçült")
+            document.sayitahmin.tahminim.focus()
+            tahminsayisi++
+            return
+            }
+            if (tahmin < rastgelesayi)
+            {
+            alert("Sayıyı Büyült")
+            document.sayitahmin.tahminim.focus()
+            tahminsayisi++;
+            return
+            }
+
+        }
+        while(tahmin != rastgelesayi);
+           
+    }
+  
+    </script>
+    </head>
+    <body>
+    <form name="sayitahmin" align="center">
+        <br>
+        <br><br><br><br>
+        <p>
+            -------------- > 1-20 Arası Sayı Tahminde Bulununuz. <--------------------------
+        </p>
+    <input type="text" name="tahminim">
+    <input type="button" Value="Tahmin" onClick="Bul(document.sayitahmin.tahminim.value)">
+    </body>
+    </html>

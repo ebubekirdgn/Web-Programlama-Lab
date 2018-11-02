@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <kisi id="1">
+        <adiSoyadi>Ebubekir Doğan</adiSoyadi>
+        <ogrNo>11111</ogrNo>
+        <sinif>4</sinif>
+        <bolum>Bilgisayar Mühendisliği</bolum>
+    </kisi>
+    <kisi id="2">
+        <adiSoyadi>Duygu Akşehir</adiSoyadi>
+        <ogrNo>22222</ogrNo>
+        <sinif>3</sinif>
+        <bolum>Kimya Mühendisliği</bolum>
+    </kisi>
+    <kisi id="3">
+        <adiSoyadi>Ayşe Çalışkan</adiSoyadi>
+        <ogrNo>33333</ogrNo>
+        <sinif>2</sinif>
+        <bolum>İnşaat Mühendisliği</bolum>
+    </kisi>
+    <kisi id="4">
+        <adiSoyadi>Semih Arslan</adiSoyadi>
+        <ogrNo>44444</ogrNo>
+        <sinif>4</sinif>
+        <bolum>Elektrik-Elektronik Mühendisliği</bolum>
+    </kisi>
+    <kisi id="5">
+        <adiSoyadi>Mehmet Erkoç</adiSoyadi>
+        <ogrNo>55555</ogrNo>
+        <sinif>4</sinif>
+        <bolum>Harita Mühendisliği</bolum>
+    </kisi>
+</catalog>

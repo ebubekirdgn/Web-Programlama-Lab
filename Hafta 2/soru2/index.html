@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/Html; charset=utf-8" />
+<style>
+.navigation ul,
+.navigation ul li,
+.navigation ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navigation ul li {
+  float: left;
+  min-height: 0.05em;
+  line-height: 1em;
+  vertical-align: middle;
+  position: relative;
+}
+
+.navigation ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: 520;
+  width: 100%;
+}
+ 
+.navigation ul li:hover > ul { visibility: visible; }
+
+.navigation ul ul {
+  top: 0;
+  left: 99%;
+}
+.navigation ul li { float: none; }
+.navigation {
+  width: 13em;
+  background: rgb(104, 98, 98);
+  font-family: 'roboto', 'Times New Roman', Times, serif, Arial;
+   
+}
+
+.navigation:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.navigation a {
+  display: block;
+  padding: 1em 1.3em;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navigation > ul { width: 13em; }
+
+.navigation ul ul { width: 13em; }
+
+.navigation > ul > li > a:hover { color: #ffffff; }
+
+.navigation > ul > li:hover a { background: #34A65F; }
+</style>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+                <li class="has-sub"> <a href="http://www.omu.edu.tr/">Anasayfa</a></li>
+          <li class="has-sub"> <a href="http://www.omu.edu.tr/tr/universitemiz/hakkimizda">Hakkımızda</a>
+            <ul>
+              <li class="has-sub"> <a href="http://www.omu.edu.tr/">Bölümümüz</a></li>
+              <li><a href="http://www.omu.edu.tr/">Yönetim</a></li>
+              <li><a href="http://www.omu.edu.tr/">Komisyon</a></li>
+            </ul>
+          </li>
+          <li class="has-sub"> <a href="#">Personel</a>
+            <ul>
+              <li><a href="http://www.omu.edu.tr/">Öğretim Üyeleri</a></li>
+              <li><a href="http://www.omu.edu.tr/">Araştırma Görevlileri</a></li>
+            </ul>
+          </li>
+          <li class="has-sub"> <a href="#">Eğitim</a>
+            <ul>
+              <li><a href="http://www.omu.edu.tr/">Lisans</a></li>
+              <li><a href="http://www.omu.edu.tr/">Yüksek Lisans</a></li>
+              <li><a href="http://www.omu.edu.tr/">Doktora</a></li>
+              <li><a href="http://www.omu.edu.tr/">Laboratuvar</a></li>
+            </ul>
+          </li>
+          <li class="has-sub"> <a href="http://www.omu.edu.tr/">İletişim</a></li>
+        </ul>
+      </div>
+</body>
+</html>

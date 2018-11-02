@@ -1,0 +1,43 @@
+<html>
+    <head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <script language="JavaScript">
+   
+    var yas;
+    var adSoyad;
+    function kontrolEt()
+      {
+        adSoyad = document.getElementById("adSoyad");
+        renk=document.giris.secilenRenk.value;
+      switch (renk)
+         {
+         case "kırmızı" :adSoyad.style.color = "red";break;
+         case "mavi" :adSoyad.style.color="blue"; break;
+         case "sarı" : adSoyad.style.color="yellow"; break;
+         case "yeşil" : adSoyad.style.color="green"; break;
+         case "pembe" : adSoyad.style.color="pink"; break;
+         case "kahverengi" : adSoyad.style.color="brown"; break;
+         default : 
+           {
+           document.bgColor="white";
+           alert("tanımsız renk");
+           }
+         }
+      }
+ 
+    </script>
+    </head>
+    <body>
+    <table border=2 align="center">
+        <tr>
+            <td>
+                <form name="giris">
+                      <h3>Lütfen Bir Renk Girin Ve Renk Değiştir'e Basın</h3>
+                     <p>Renkler : mavi, kırmızı, sarı, pembe,yeşil,kahverengi</p>
+                     <input type="text" name="secilenRenk" size=10><br>
+                     <p id="adSoyad"> EBUBEKİR DOĞAN    </p>
+                     <input type="button" name="karsılastırma" value="Renk Değiştir" onClick="kontrolEt()">
+                </form>
+    </td></tr></table>
+    </body>
+    </html>

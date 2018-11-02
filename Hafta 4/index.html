@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Angular Js</title>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+<body ng-app="kisiModul">
+        <div class="container-fluid mt-12">
+                   <div class="card" style="width: 28rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Kişi Bilgileri</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label for="adi">Ad :</label>
+                                    <input type="text" name="adi" class="form-control" id="adi" placeholder="Adınız">
+                                </div>
+                                <div class="form-group">
+                                    <label for="soyadi">Soyad : </label>
+                                    <input type="text" name="soyadi" class="form-control" id="soyadi" placeholder="Soyadınız">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telno">Telefon Numarası :</label>
+                                    <input type="text"  class="form-control" id="telno" name="telno" placeholder="Telefon Numarası">
+                                </div>
+                                <div class="form-group">
+                                <label for="email">Email Adresi : </label>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Email Adresi">
+                            </div>
+                                <button type="button" id="Ekle" class="btn btn-primary">Kaydet</button>
+                            </form>
+                        </div>
+                    </div>
+                <div class="card" style="width: 58rem;">
+                        <table ng-controller="listeController" class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Adı</th>
+                            <th scope="col">Soyadı</th>
+                            <th scope="col">Telefon Numarası</th>
+                            <th scope="col">Email</th>
+                            <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="person in persons">
+                            <td> {{ person.Id }} </td>
+                            <td> {{ person.Adi }} </td>
+                            <td> {{ person.Soyadi }} </td>
+                            <td> {{ person.Numarasi }} </td>
+                            <td> {{ person.Email }} </td>
+                            <td class="d-flex justify-content-between">
+                                <span>
+                                    <a href="#">
+                                    <i class="btn btn-danger"  title="Sil" ng-click="sil(person)">Sil</i>
+                                    </a>
+                                </span>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+          </div>
+  <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/node_modules/popper.js/dist/popper.min.js"></script>
+  <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/node_modules/angular/angular.min.js"></script>
+  <script src="/app.js"></script>
+  <script>
+            $(function () {
+                $('#Ekle').on('click', function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/ekle',
+                        data: {
+                            adi:$('#adi').val(),
+                            soyadi:$('#soyadi').val(),
+                            telno:$('#telno').val(),
+                            email:$('#email').val(),
+                        },
+                        cache: false,
+                        success: function (result) {
+                            if (result.success) {
+                                alert("Ekleme başarılı")
+                                location.reload();
+                            } else
+                                alert("Ekleme başarısız")
+                        }
+                    });
+                });
+    
+            });
+        </script>
+</body>
+</html>
