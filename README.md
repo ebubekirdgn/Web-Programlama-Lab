@@ -2,6 +2,8 @@
 
 Web Programlama dersinde ödev niteliğinde verilen ufak çaplı projelerdir.
 
-1. James Madison
-2. James Monroe
-3. John Quincy Adams
+- Hafta 2 : 
+- Hafta 3 :
+- Hafta 4 :
+- Hafta 5 :
+- Hafta 6 :
